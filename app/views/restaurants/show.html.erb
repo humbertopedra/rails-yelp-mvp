@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="restaurants">
+
+
+    <div id="<%= dom_id @restaurant %>">
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
+
+   <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
+
+  <h2>Reviews</h2>
+<ul class='list-group'>
+  <% @restaurant.reviews.each do |review| %>
+    <li class='list-group-item'>
+      <%= review.content %>
+      <strong>Rating:</strong>
+      <%= review.rating %>
+       <% end %>
+
+</div>
+
+
+<div>
+  <%= link_to "Back to restaurants", restaurants_path %> |
+  <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+
+</div>
